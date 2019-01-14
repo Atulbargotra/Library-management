@@ -1,0 +1,53 @@
+import java.util.Scanner;
+public class useLibrary {
+
+    public static void main(String[] args) {
+        Scanner kb = new Scanner(System.in);
+        String c = "";
+        Books b1 = new Books("M1", "Dk jain", 500);
+        Books b2 = new Books("c++", "Bjarne", 1000);
+        Books b3 = new Books("Physics", "atul", 600);
+        Books b4 = new Books("Chemistry", "Verma", 900);
+        Library l = new Library();
+        l.addBook(b1);//add books method
+        l.addBook(b2);
+        l.addBook(b3);
+        l.addBook(b4);
+        //l.getAllBooks();//get all books
+        //l.getBookCount();// count the number of books in library.
+        do {
+            System.out.println("Enter the operation");
+            System.out.println("1. add new book");
+            System.out.println("2. get all books");
+            System.out.println("3. get book count");
+            int n = kb.nextInt();
+            switch (n) {
+                case 1:
+
+                    System.out.println("Enter name of book you want to add ");
+                    String book = kb.next();
+                    System.out.println("Enter name of the auther");
+                    String auther = kb.next();
+                    System.out.println("Enter price of the book");
+                    int price = kb.nextInt();
+                    Books b5 = new Books(book, auther, price);
+                    l.addBook(b5);
+                    break;
+
+                case 2:
+                    l.getAllBooks();
+                    break;
+
+                case 3:
+                    l.getBookCount();
+                    break;
+
+            }
+            System.out.println("Do you want to continue 'Y' or 'N'");
+            c = kb.next();
+
+        } while (c.equalsIgnoreCase("Y"));
+        System.out.println("---------------------Thankyou-----------------");
+    }
+
+}
